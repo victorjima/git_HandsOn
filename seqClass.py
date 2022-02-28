@@ -15,12 +15,12 @@ args = parser.parse_args() # define the variable for the arguments
 
 args.seq = args.seq.upper()  # transform the sequence into capital letters
 if re.search('^[ACGTU]+$', args.seq): # search for all the letters in the sequence
-    if re.search('^[ACGT]+$', args.seq): 
-        print ('The sequence is DNA') # if it contains a T the sequence is DNA
-    elif re.search('^[ACGU]+$', args.seq):
-        print ('The sequence is RNA') # if it contains a U the sequence is RNA
+    if re.search('^[ACGT]+$', args.seq): # if the characters of the sequence correspond to those of DNA, including the T and without the U
+        print ('The sequence is DNA') 
+    elif re.search('^[ACGU]+$', args.seq): # if the characters of the sequence correspond to those of RNA, including the U and without the T
+        print ('The sequence is RNA') 
     else:
-        print ('Ambiguity: the sequence may be either DNA or RNA') # if it contains both, either
+        print ('Ambiguity: the sequence may be either DNA or RNA') # if it contains both, it is ambigous
 else:
     print ('The sequence is neither DNA nor RNA') # not identified
 
@@ -30,4 +30,4 @@ if args.motif:
     if re.search(args.motif, args.seq): 
         print(f"Motif {args.motif}  is found in sequence {args.seq}") # if the motif is found
     else:
-        print(f"Motif {args.motif} is not found in sequence {args.seq}")
+        print(f"Motif {args.motif} is not found in sequence {args.seq}") # if the motif is not found
