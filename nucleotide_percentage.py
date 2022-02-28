@@ -17,7 +17,7 @@ args = parser.parse_args() # define the variable for the arguments
 args.seq = args.seq.upper()  # transform the sequence into capital letters
 args.type = args.type.upper()  # transform type of sequence into capital letters
 
-if args.type == "DNA": # if type of sequence is RNA
+if args.type == "RNA": # if type of sequence is RNA
     if re.search('^[ACGU]+$', args.seq): # check if sequence is RNA
         RNA_perc = [] # initialize list to contain percentages
         RNA_counts = [] # initialize lust to contain counts
@@ -29,7 +29,7 @@ if args.type == "DNA": # if type of sequence is RNA
         print(percentage)
     else:
         print("Type of sequence does not match the content of the sequence") # if sequence is not really RNA
-elif args.type == "RNA": # if type of sequence is DNA
+elif args.type == "DNA": # if type of sequence is DNA
      if re.search('^[ACGT]+$', args.seq): # check if sequence is DNA
         DNA_perc = [] # initialize list to contain percentages
         DNA_counts = [] # initialize lust to contain counts
